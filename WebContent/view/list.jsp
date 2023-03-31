@@ -15,7 +15,7 @@
 		</div>
 		<div class="list_table_item">
 			<p>
-				<a href="./update.html">custno</a>
+				<a href="./update.jsp">custno</a>
 			</p>
 			<p>custname</p>
 			<p>phone</p>
@@ -29,7 +29,7 @@
 
 		<div class="list_table_item">
 			<p>
-				<a href="./update.html">custno</a>
+				<a href="./update.jsp">custno</a>
 			</p>
 			<p>custname</p>
 			<p>phone</p>
@@ -40,7 +40,7 @@
 		</div>
 		<div class="list_table_item">
 			<p>
-				<a href="./update.html">custno</a>
+				<a href="./update.jsp">custno</a>
 			</p>
 			<p>custname</p>
 			<p>phone</p>
@@ -51,7 +51,7 @@
 		</div>
 		<div class="list_table_item">
 			<p>
-				<a href="./update.html">custno</a>
+				<a href="./update.jsp">custno</a>
 			</p>
 			<p>custname</p>
 			<p>phone</p>
@@ -62,7 +62,7 @@
 		</div>
 		<div class="list_table_item">
 			<p>
-				<a href="./update.html">custno</a>
+				<a href="./update.jsp">custno</a>
 			</p>
 			<p>custname</p>
 			<p>phone</p>
@@ -73,7 +73,7 @@
 		</div>
 		<div class="list_table_item">
 			<p>
-				<a href="./update.html">custno</a>
+				<a href="./update.jsp">custno</a>
 			</p>
 			<p>custname</p>
 			<p>phone</p>
@@ -84,7 +84,7 @@
 		</div>
 		<div class="list_table_item">
 			<p>
-				<a href="./update.html">custno</a>
+				<a href="./update.jsp">custno</a>
 			</p>
 			<p>custname</p>
 			<p>phone</p>
