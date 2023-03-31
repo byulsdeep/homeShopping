@@ -18,7 +18,7 @@
 					<a href="./signup.jsp">회원등록</a>
 				</div>
 				<div class="nav_menu">
-					<a href="./update.jsp">회원목록조회/수정</a>
+					<a href="./list.jsp">회원목록조회/수정</a>
 				</div>
 				<div class="nav_menu">
 					<a href="./sales.jsp">회원매출조회</a>
