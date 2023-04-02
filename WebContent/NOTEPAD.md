@@ -6,12 +6,12 @@
 4. JavaScript 부분이 없는데, 이 부분을 백 쪽에서 구현을 해야하는지 주석 요망. <br>
 5. 오늘 commit된 내용들처럼 계속해서 진행하면 될지 방향성에 대해 주석 요망. <br>
 
--- 23.04.02 --
-6. 회원매출조회 total을 구하는 곳에서 error
-  ㄴ SELECT mem.custno, custname,  grade, SUM(price) as total 
-  FROM member_tbl_02 mem, money_tbl_02 mon 
-  WHERE mem.custno = mon.custno AND custname = ? 
-  GROUP BY custname;
-  ㄴ errorLog: "index에서 누락된 in 또는 out 매개변수"; 
-7. build/classes 폴더 안에 .java의 .class 파일이 자동생성되지 않음
+-- 23.04.02 -- <br>
+6. 회원매출조회 total을 구하는 곳에서 error <br>
+  ㄴ SELECT mem.custno, custname,  grade, SUM(price) as total  <br>
+  FROM member_tbl_02 mem, money_tbl_02 mon  <br>
+  WHERE mem.custno = mon.custno AND custname = ?  <br>
+  GROUP BY custname; <br>
+  ㄴ errorLog: "index에서 누락된 in 또는 out 매개변수";  <br>
+7. build/classes 폴더 안에 .java의 .class 파일이 자동생성되지 않음 <br>
   ㄴ 임의로 .class 파일을 넣어도 되지 않고, cmd로 컴파일조차 되지 않음
