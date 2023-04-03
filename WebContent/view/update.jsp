@@ -13,7 +13,7 @@
                 <div class="form_item"><label for="city">거주도시</label><input type="text" name="city" id="city" placeholder="city"></div>
                 <div class="create_btn">
                     <button type="submit" onclick="alert('회원정보수정이 완료 되었습니다!');">제출</button>
-                    <button type="button" onclick="location.href='list.html'">조회</button>
+                    <button type="button" onclick="location.href='list.jsp'">조회</button>
                 </div>
             </form>
         </div>

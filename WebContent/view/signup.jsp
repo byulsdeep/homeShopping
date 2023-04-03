@@ -34,7 +34,7 @@
           </div>
           <div class="create_btn">
             <button type="submit">제출</button>
-            <button type="button" onclick="location.href='list.html'">
+            <button type="button" onclick="location.href='list.jsp'">
               조회
             </button>
           </div>
