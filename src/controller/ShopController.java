@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,16 +39,17 @@ public class ShopController extends HttpServlet {
         String contextPath = req.getContextPath();
         String com = uri.substring(contextPath.length());
 
-
         if (com.equals("/list.do")) {
             cmd = new ListCommand();
             cmd.execute(req, resp);
             page = "/list.jsp";
-        }
-        else if (com.equals("/signup.do")) {
+        } else if (com.equals("/signup.do")) {
             cmd = new SignupCommand();
             cmd.execute(req, resp);
             page = "signup.jsp";
-        } 
+        }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher(page);
+        dispatcher.forward(req, resp);
     }
 }

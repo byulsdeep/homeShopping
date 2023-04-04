@@ -6,31 +6,31 @@
         <form action="signup.do" method="post">
           <div class="form_item">
             <label for="custno">회원번호</label
-            ><input type="text" name="custno" id="custno" required value="${signup.custno}" />
+            ><input type="text" name="custno" id="custno" required" />
           </div>
           <div class="form_item">
             <label for="custname">회원성명</label
-            ><input type="text" name="custname" id="custname" required value="${signup.custname}" />
+            ><input type="text" name="custname" id="custname" required" />
           </div>
           <div class="form_item">
             <label for="phone">회원전화</label
-            ><input type="text" name="phone" id="phone" required value="${signup.phone}" />
+            ><input type="text" name="phone" id="phone" required" />
           </div>
           <div class="form_item">
             <label for="address">주소</label
-            ><input type="text" name="address" id="address" required value="${signup.address}" />
+            ><input type="text" name="address" id="address" required" />
           </div>
           <div class="form_item">
             <label for="joindate">가입일자</label
-            ><input type="text" name="joindate" id="joindate" required value="${signup.joindate}" />
+            ><input type="text" name="joindate" id="joindate" required" />
           </div>
           <div class="form_item">
             <label for="grade">고객등급</label
-            ><input type="text" name="grade" id="grade" required value="${signup.grade}" />
+            ><input type="text" name="grade" id="grade" required" />
           </div>
           <div class="form_item">
             <label for="city">거주도시</label
-            ><input type="text" name="city" id="city" required value="${signup.city}" />
+            ><input type="text" name="city" id="city" required" />
           </div>
           <div class="create_btn">
             <button type="submit">제출</button>
