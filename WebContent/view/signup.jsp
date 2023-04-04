@@ -3,7 +3,7 @@
 <%@ include file="./header.jsp"%>
 <div class="content">
         <h2>홈쇼핑 회원 등록</h2>
-        <form action="" method="post">
+        <form action="signup.do" method="post">
           <div class="form_item">
             <label for="custno">회원번호</label
             ><input type="text" name="custno" id="custno" required />
