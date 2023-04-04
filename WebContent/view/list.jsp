@@ -1,7 +1,3 @@
-<%@page import="java.util.ArrayList"%>
-<%@ page import="java.util.List"%>
-<%@ page import="vo.signvo.SignupVO"%>
-<%@ page import="dao.signup.SignupDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp"%>
@@ -10,9 +6,9 @@
 
 <body>
 <%
-	SignupDAO dao = new SignupDAO();
-	List<SignupVO> voArr = new ArrayList<>();
-	voArr = dao.signupSelect();
+	SignDao dao = new SignDao();
+	List<SignVO> voList = new ArrayList<>();
+	voList = dao.clientList();
 %>
 
 <div class="content">
@@ -28,8 +24,8 @@
 			<p>거주지역</p>
 		</div>
 
-		<% for (int i = 0; i < voArr.size(); i++) { 
-			SignupVO myVO = voArr.get(i); 
+		<% for (int i = 0; i < voList.size(); i++) { 
+			SignupVO myVO = voList.get(i); 
 		%>
 			<div class="list_table_item">
 				<p>

@@ -10,18 +10,9 @@ import javax.sql.DataSource;
 import vo.signvo.SignVO;
 
 public class SignDAO {
-	// private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	// private String uid = "scott";
-	// private String upw = "TIGER";
 	private DataSource datasource;
 
 	public SignDAO() {
-		// try {
-		// Class.forName("oracle.jdbc.driver.OracleDriver");
-		// } catch (Exception e) {
-		// e.printStackTrace();
-		// }
-
 		try {
 			Context context = new InitialContext();
 			datasource = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
@@ -30,7 +21,7 @@ public class SignDAO {
 		}
 	}
 
-	public List<SignVO> signupSelect() {
+	public List<SignVO> clientList() {
 		List<SignVO> vos = new ArrayList<>();
 
 		Connection con = null;
@@ -38,7 +29,7 @@ public class SignDAO {
 		ResultSet rs = null;
 
 		try {
-			String sql = "SELECT * FROM MEMBER_TBL_02, MEMBER_TBL_02 WHERE MEMBER_TBL_02.CUSTNO = MONEY_TBL_02.CUSTNO";
+			String sql = "SELECT * FROM MEMBER_TBL_02";
 
 			// con = DriverManager.getConnection(url, uid, upw);
 			con = datasource.getConnection();
@@ -74,4 +65,41 @@ public class SignDAO {
 
 		return vos;
 	}
+
+    public int signup(String custno, String custname, String phone, String address, String joindate, String grade,
+            String city) {
+		
+		Connection con = null;
+		PreparedStatement ps = null;
+		int rn = 0;
+
+		try {
+            String sql = "INSERT INTO MEMBER_TBL_02(CUSTNO, CUSTNAME, PHONE, ADDRESS, JOINDATE, GRADE, CITY) VALUES(?,?,?,?,?,?,?)";
+			con = datasource.getConnection();
+			ps = con.prepareStatement(sql);
+
+			ps.setInt(1, Integer.parseInt(custno));
+            ps.setString(2, custname);
+            ps.setString(3, phone);
+            ps.setString(4, address);
+            ps.setDate(5, Date.valueOf(joindate));
+            ps.setString(6, grade);
+            ps.setString(7, city);
+
+			rn = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null)
+					ps.close();
+				if (con!= null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return rn;
+    }
 }
