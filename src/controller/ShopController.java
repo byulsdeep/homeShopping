@@ -42,7 +42,7 @@ public class ShopController extends HttpServlet {
         if (com.equals("/list.do")) {
             cmd = new ListCommand();
             cmd.execute(req, resp);
-            page = "list.jsp";
+            page = "/list.jsp";
         }
         else if (com.equals("/signup.do")) {
             cmd = new SignupCommand();
