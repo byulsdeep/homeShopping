@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp"%>
 <%@ page import="inquiry.inquiryvo.InquiryVO"%>
-<%@ page import="inquiry.inquirydao.InquiryDAO"%>
+<%@ page import="inquiry.inquiryvo.InquiryDAO"%>
 <%@ page import="java.util.List" %>
 <%
     InquiryDAO dao = new InquiryDAO();
