@@ -1,14 +1,11 @@
 package command;
 
-import java.util.Arrays;
-import java.util.Enumeration;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.signdao.SignDAO;
 
-public class SignupCommand implements ShopCommand {
+public class UpdateCommand implements ShopCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String custno = request.getParameter("custno");
@@ -20,12 +17,14 @@ public class SignupCommand implements ShopCommand {
 		String city = request.getParameter("city");
 		
 		SignDAO dao = new SignDAO();
-		int result = dao.signup(custno, custname, phone, address, joindate, grade, city);
+		int result = dao.update(custno, custname, phone, address, joindate, grade, city);
 
-		String message = "회원등록이 실패하였습니다";
+		String message = "회원정보수정이 실패하였습니다";
 		if (result == 1)
-			message = "회원등록이 완료 되었습니다!";
+			message = "회원정보수정이 완료 되었습니다!";
 
 		request.setAttribute("message", message);
+		
+		new GetClientInfoCommand().execute(request, response);
 	}
 }

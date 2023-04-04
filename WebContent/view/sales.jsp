@@ -1,13 +1,14 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp"%>
-<%@ page import="inquiry.inquiryvo.InquiryVO"%>
-<%@ page import="inquiry.inquiryvo.InquiryDAO"%>
-<%@ page import="java.util.List" %>
-<%
+<%@ page import="vo.inquiryvo.InquiryVO"%>
+<%@ page import="dao.inquirydao.InquiryDAO"%>
+<%@ page import="java.util.List"%>
+<%-- <%
     InquiryDAO dao = new InquiryDAO();
-    List<InquiryVO> vos = dao.inquirySelect();
-%>
+    List<InquiryVO> vos = dao.InquirySelect();
+%> --%>
 <div class="content">
 	<h2>회원매출조회</h2>
 	<div class="table sales_table">
@@ -17,10 +18,17 @@
 			<p>고객등급</p>
 			<p>매출</p>
 		</div>
-
-		<div class="sales_table_item">
+		<c:forEach var="s" items="${sales}">
+			<div class="sales_table_item">
+				<p>${s.custno}</p>
+				<p>${s.custname}</p>
+				<p>${s.grade}</p>
+				<p>${s.sales}</p>
+			</div>
+		</c:forEach>
+		<%-- 		<div class="sales_table_item">
 			<p><%=vos.get(0).getCustno() %></p>
-			<p><%=vos.get(0).getcustname() %></p>
+			<p><%=vos.get(0).getCustname() %></p>
 			<p><%=vos.get(0).getGrade() %></p>
 			<p><%=vos.get(0).getTotal() %></p>
 		</div>
@@ -41,7 +49,7 @@
 			<p><%=vos.get(3).getcustname() %></p>
 			<p><%=vos.get(3).getGrade() %></p>
 			<p><%=vos.get(3).getTotal() %></p>
-		</div>
+		</div> --%>
 	</div>
 </div>
 <%@ include file="./footer.jsp"%>

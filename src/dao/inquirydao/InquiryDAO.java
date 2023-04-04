@@ -1,13 +1,19 @@
 package dao.inquirydao;
-import java.sql.*;
-import java.util.List;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import vo.inquiryvo.InquiryVO;
+import vo.inquiryvo.SalesVO;
 
 public class InquiryDAO {
 	// private String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -72,6 +78,46 @@ public class InquiryDAO {
 			}
 		}
 
+		return vos;
+	}
+
+	public List<SalesVO> getSales() {
+		List<SalesVO> vos = new ArrayList<>();
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String sql = "SELECT M.CUSTNO, CUSTNAME, CASE WHEN GRADE = 'A' THEN 'VIP' WHEN GRADE = 'B' THEN '일반' WHEN GRADE = 'C' THEN '직원' END AS GRADE, SUM(PRICE) AS SALES FROM MEM M, MONEY Y WHERE M.CUSTNO = Y.CUSTNO AND PRICE != 0 GROUP BY M.CUSTNO, CUSTNAME, GRADE ORDER BY SUM(PRICE) DESC";
+
+			con = datasource.getConnection();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			SalesVO vo;
+			while (rs.next()) {
+				vo = new SalesVO();
+				vo.setCustno(rs.getInt("custno"));
+				vo.setCustname(rs.getString("custname"));
+				vo.setGrade(rs.getString("grade"));
+				vo.setSales(rs.getInt("sales"));
+				vos.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		return vos;
 	}
 }
