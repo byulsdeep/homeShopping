@@ -3,11 +3,11 @@
 <%@ include file="./header.jsp"%>
 <div class="content">
         <h2>홈쇼핑 회원 등록</h2>
-        <form action="" method="post">
-          <div class="form_item">
+        <form action="write.do" method="post">
+          <!-- <div class="form_item">
             <label for="custno">회원번호</label
             ><input type="text" name="custno" id="custno" required />
-          </div>
+          </div> -->
           <div class="form_item">
             <label for="custname">회원성명</label
             ><input type="text" name="custname" id="custname" required />
