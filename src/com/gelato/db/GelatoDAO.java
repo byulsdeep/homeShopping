@@ -200,7 +200,7 @@ public class GelatoDAO {
 		System.out.println("getSales");
 
 		try {
-			String query = "SELECT m.CUSTNO, m.CUSTNAME, m.grade , SUM(amount * price) AS TOTAL FROM MEMBER_TBL_02 m INNER JOIN MONEY_TBL_02 o ON m.CUSTNO = o.CUSTNO GROUP BY m.CUSTNO, m.CUSTNAME, m.grade ORDER BY m.CUSTNO";
+			String query = "SELECT m.CUSTNO, m.CUSTNAME, m.grade , SUM(amount * pcost) AS TOTAL FROM MEMBER_TBL_02 m INNER JOIN MONEY_TBL_02 o ON m.CUSTNO = o.CUSTNO GROUP BY m.CUSTNO, m.CUSTNAME, m.grade ORDER BY m.CUSTNO";
 
 			connection = dataSource.getConnection();
 			preparedStatement = connection.prepareStatement(query);
